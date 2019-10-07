@@ -4,14 +4,7 @@ import 'package:audioplayers/audioplayers.dart';
 
 void main() {
   runApp(MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Best of Hindi',
-          ),
-        ),
-        body: SpotifyPlayer(),
-      )
+      home: SpotifyPlayer(),
   ));
 }
 
@@ -31,6 +24,33 @@ class _SpotifyPlayerState extends State<SpotifyPlayer> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Best of Hindi',
+        ),
+        centerTitle: true,
+
+      ),
+      body: Column(
+          children: <Widget>[
+            Image.network('https://i.scdn.co/image/f218335b215402cc2fb3b8d92652ebad48458805'),
+            Text(dummySong.name),
+            Text(dummySong.artistName),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                IconButton(icon:Icon(Icons.thumb_up),onPressed: (){},),
+                IconButton(icon:Icon(Icons.skip_previous),onPressed: (){},),
+                IconButton(icon:Icon(Icons.play_arrow),onPressed: (){},iconSize: 50,),
+                IconButton(icon:Icon(Icons.skip_next),onPressed: (){},),
+                IconButton(icon:Icon(Icons.thumb_down),onPressed: (){},),
+              ],
+            )
+
+          ],
+        
+      )
+    );
   }
 }
